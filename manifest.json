@@ -4,8 +4,7 @@
     "description": "Trying to make an extension",
     "version": "1.0.0",
     "action": {
-      "default_popup": "popup.html",
-      "default_icon": "icon.png"
+      "default_popup": "popup.html"
     },
     "content_scripts": [
       {
