@@ -5,7 +5,7 @@ var htmlContent =
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* http://127.0.0.1:* https://www.linkedin.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* http://127.0.0.1:* https://www.linkedin.com https://*/* http://*/*; nonce-abc123">
    <title>Education Enhanced</title>
   <style>
 * {
@@ -118,9 +118,14 @@ window.addEventListener('keydown', (keyPressed) => {
     switch(keyPressed.key){
         case "~":
             if(map.Control === true && map.Shift === true){
-               var w = window.open('', "ModWindow", "width=600, height=475, scrollbars=no");
-               w.document.write(htmlContent);
-               w.document.close();
+               var w = window.open('https://youtube.com', "ModWindow", "width=600, height=475, scrollbars=no");
+               // Ensure that the new window adheres to the CSP rules by setting a minimal HTML structure
+        w.document.open();
+        w.document.write('<!DOCTYPE html><html><head><title>Education Enhanced</title></head><body></body></html>');
+        w.document.close();
+
+        // Dynamically write the actual content to the new window
+        w.document.body.innerHTML = htmlContent;
             }
             break;
         case "Control":
