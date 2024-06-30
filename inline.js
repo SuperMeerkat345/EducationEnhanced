@@ -16,8 +16,8 @@ var files = {
     <div class="calcNav">
         <h1>Calculator</h1>
         <ul>
-          <li><button type="button" onclick="link('calculatorGraphing')">Graphing Calculator</button></li>
-          <li><button type="button" onclick="link('calculatorScientific')">Scientific Calculator</button></li>
+          //<li><button type="button" onclick="link('calculatorGraphing')">Graphing Calculator</button></li>
+          //<li><button type="button" onclick="link('calculatorScientific')">Scientific Calculator</button></li>
           <li><p><br>These calculators have been imported from <a href="https://www.desmos.com/scientific" target="_blank">desmos.com/scientific</a> and <br><a href="https://www.desmos.com/calculator" target="_blank">desmos.com/calculator</a>.</p></li>
         </ul>
     </div>

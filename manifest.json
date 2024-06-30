@@ -10,7 +10,8 @@
       {
         "js": ["script.js"],
         "matches": [
-          "https://*/*"
+          "https://*/*",
+          "http://*/*"
         ]
       }
     ],
