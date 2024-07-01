@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Education Enhanced",
-    "description": "Trying to make an extension",
-    "version": "1.0.0",
+    "description": "Suited for all your educational needs",
+    "version": "0.0.1",
     "action": {
       "default_popup": "script.js"
     },
