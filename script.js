@@ -1,114 +1,186 @@
-var htmlContent = 
-    `
+var newHTML = 
+`
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:* http://127.0.0.1:* https://www.linkedin.com https://*/* http://*/*; nonce-abc123">
-   <title>Education Enhanced</title>
+  <title>Education Enhanced</title>
   <style>
-* {
-  margin: 0px;
-  padding: 0px;
-  overflow: hidden;
-}
+    * {
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+    }
 
-html {
-  height: 400px;
-  width: 600px;
-}
+    html {
+      height: 400px;
+      width: 600px;
+    }
 
-body {
-  background: black;
-  color: white;
-}
+    body {
+      background: black;
+      color: white;
+    }
 
-.nav {
-  border-bottom: solid white 2px;
-  padding: 5px;
-}
+    .screen {
+      margin-bottom: 1000px;
+    }
 
-.nav li {
-  list-style-type: none;
-  display: inline-block;
-  margin-left: 4px;
-}
+    .nav {
+      border-bottom: solid white 2px;
+      padding: 5px;
+    }
 
-.nav a {
-  text-decoration: none;
-  color: blue;
-}
+    .nav li {
+      list-style-type: none;
+      display: inline-block;
+      margin-left: 4px;
+    }
 
-.content {
-  margin-left: 7px;
-}
+    .nav a {
+      text-decoration: none;
+      color: blue;
+    }
 
-.calcNav a{
-  text-decoration: none;
-  color: blue;
-}
+    .content {
+      margin-left: 7px;
+    }
 
-.content a {
-  text-decoration: none;
-  color: blue;
-}
+    .calcNav a {
+      text-decoration: none;
+      color: blue;
+    }
+
+    .content a {
+      text-decoration: none;
+      color: blue;
+    }
   </style>
 </head>
+
 <body>
-  
-  <div class="screen">
+  <!-- INDEX -->
+  <div class="screen" id="index">
+
     <div class="nav">
       <ul>
-        <li><p>EE</p></li>
-        <li><button type="button" id="homeBtn">Home</button></li>
-        <li><button type="button" id="calculatorBtn">Calculator</button></li>
-        <li><button type="button" id="formulasBtn">Formulas</button></li>
+        <li>
+          <p>EE</p>
+        </li>
+        <li><a href="#index">Home</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#formulas">Formulas</a></li>
       </ul>
     </div>
-    <div class="content" id="contentDiv">
-    <h1>Home</h1>
-    <p>This is a tool for helping yourself and your education. If you want or need a feature to be added ... </p>
+
+    <div class="content">
+      <h1>Home</h1>
+      <p>This is a tool for helping yourself and your education. If you want or need a feature to be added ... </p>
     </div>
+
   </div>
-  <script src="inline.js" nonce="abc123"></script>
-  <script nonce="abc123">
-     // Nonce generator function
-    function generateNonce() {
-      var nonce = '';
-      var characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-      for (var i = 0; i < 16; i++) {
-        nonce += characters.charAt(Math.floor(Math.random() * characters.length));
-      }
-      return nonce;
-    }
+  <!-- CALCULATOR -->
+  <div class="screen" id="calculator">
 
-    var nonceValue = generateNonce(); // Generate nonce value
+    <div class="nav">
+      <ul>
+        <li>
+          <p>EE</p>
+        </li>
+        <li><a href="#index">Home</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#formulas">Formulas</a></li>
+      </ul>
+    </div>
 
-    // Set nonce value in CSP header dynamically
-    var cspMeta = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
-    if (cspMeta) {
-      cspMeta.setAttribute('content', cspMeta.getAttribute('content') + ' nonce-' + nonceValue);
-    }
+    <div class="content">
 
-    // Event handling using JavaScript
-    document.getElementById('homeBtn').addEventListener('click', function() {
-      link('index');
-    });
+      <div class="calcNav">
+        <h1>Calculator</h1>
+        <ul>
+          <li><a href="#calculatorScientific">Scientific Calculator</a></li>
+          <li><a href="#calculatorGraphing">Graphing Calculator</a></li>
+          <li>
+            <p><br>These calculators have been imported from <a href="https://www.desmos.com/scientific"
+                target="_blank">desmos.com/scientific</a> and <br><a href="https://www.desmos.com/calculator"
+                target="_blank">desmos.com/calculator</a>.</p>
+          </li>
+        </ul>
+      </div>
 
-    document.getElementById('calculatorBtn').addEventListener('click', function() {
-      link('calculator');
-    });
+    </div>
 
-    document.getElementById('formulasBtn').addEventListener('click', function() {
-      link('formulas');
-    });
-  </script>
+  </div>
+  <!-- FORMULAS -->
+  <div class="screen" id="formulas">
+
+    <div class="nav">
+      <ul>
+        <li>
+          <p>EE</p>
+        </li>
+        <li><a href="#index">Home</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#formulas">Formulas</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h1>Formulas - <a href="https://www.matematica.pt/en/useful/math-formulas.php" target="_blank">Visit</a></h1>
+      <iframe src="https://www.matematica.pt/en/useful/math-formulas.php" width="100%" height="400px" frameborder="0"
+        allowfullscreen name="Graphing Calculator"></iframe>
+    </div>
+
+  </div>
+  <!-- CALCULATOR-SCIENTIFIC -->
+  <div class="screen" id="calculatorScientific">
+
+    <div class="nav">
+      <ul>
+        <li>
+          <p>EE</p>
+        </li>
+        <li><a href="#index">Home</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#formulas">Formulas</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h1>Scientific Calculator</h1>
+      <iframe src="https://www.desmos.com/scientific" width="100%" height="400px" frameborder="0" allowfullscreen
+        name="Scientific Calculator"></iframe>
+    </div>
+
+  </div>
+  <!-- CALCULATOR-GRAPHING -->
+  <div class="screen" id="calculatorGraphing">
+
+    <div class="nav">
+      <ul>
+        <li>
+          <p>EE</p>
+        </li>
+        <li><a href="#index">Home</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#formulas">Formulas</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h1>Graphing Calculator</h1>
+      <iframe src="https://www.desmos.com/calculator" width="100%" height="400px" frameborder="0" allowfullscreen
+        name="Graphing Calculator"></iframe>
+    </div>
+
+  </div>
 </body>
+
 </html>
-    `;
-
-
+`
+;
 
 var map = {};
 
@@ -118,14 +190,8 @@ window.addEventListener('keydown', (keyPressed) => {
     switch(keyPressed.key){
         case "~":
             if(map.Control === true && map.Shift === true){
-               var w = window.open('https://youtube.com', "ModWindow", "width=600, height=475, scrollbars=no");
-               // Ensure that the new window adheres to the CSP rules by setting a minimal HTML structure
-        w.document.open();
-        w.document.write('<!DOCTYPE html><html><head><title>Education Enhanced</title></head><body></body></html>');
-        w.document.close();
-
-        // Dynamically write the actual content to the new window
-        w.document.body.innerHTML = htmlContent;
+                var w = window.open('', "ModWindow", "width=600, height=475, scrollbars=no");
+                w.document.write(newHTML);
             }
             break;
         case "Control":

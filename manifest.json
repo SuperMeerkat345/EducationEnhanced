@@ -4,7 +4,7 @@
     "description": "Trying to make an extension",
     "version": "1.0.0",
     "action": {
-      "default_popup": "popup.html"
+      "default_popup": "script.js"
     },
     "content_scripts": [
       {
