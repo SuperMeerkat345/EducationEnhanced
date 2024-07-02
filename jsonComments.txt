@@ -9,3 +9,8 @@ since json doesn't allow comments
         ]
       }
     ],
+
+"matches": [
+     "https://*/*",
+      "http://*/*"
+        ]
