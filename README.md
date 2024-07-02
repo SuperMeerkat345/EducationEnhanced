@@ -1,2 +1,2 @@
 # EducationEnhanced
-Chrome extension but idk if it even is gonna work 
+Chrome extension focused on productivity
