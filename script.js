@@ -57,6 +57,25 @@ var newHTML =
       text-decoration: none;
       color: blue;
     }
+
+
+
+
+
+
+    /* FORM CSS */
+    textarea {
+      padding: 10px;
+      width: 400px;
+      height: 150px;
+      font-size: 16px;
+      overflow: auto;
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
+    }
+    
   </style>
 </head>
 
@@ -72,6 +91,8 @@ var newHTML =
         <li><a href="#index">Home</a></li>
         <li><a href="#calculator">Calculator</a></li>
         <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
+        <li><a href="#notes">Notes</a></li>
       </ul>
     </div>
 
@@ -92,12 +113,13 @@ var newHTML =
         <li><a href="#index">Home</a></li>
         <li><a href="#calculator">Calculator</a></li>
         <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
       </ul>
     </div>
 
     <div class="content">
 
-      <div class="calcNav">
+      <div class="contentNav">
         <h1>Calculator</h1>
         <ul>
           <li><a href="#calculatorScientific">Scientific Calculator</a></li>
@@ -124,6 +146,7 @@ var newHTML =
         <li><a href="#index">Home</a></li>
         <li><a href="#calculator">Calculator</a></li>
         <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
       </ul>
     </div>
 
@@ -145,6 +168,7 @@ var newHTML =
         <li><a href="#index">Home</a></li>
         <li><a href="#calculator">Calculator</a></li>
         <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
       </ul>
     </div>
 
@@ -166,6 +190,7 @@ var newHTML =
         <li><a href="#index">Home</a></li>
         <li><a href="#calculator">Calculator</a></li>
         <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
       </ul>
     </div>
 
@@ -176,6 +201,121 @@ var newHTML =
     </div>
 
   </div>
+  <!-- ENTERTAINMENT -->
+  <div class="screen" id="entertainment">
+
+    <div class="nav">
+      <ul>
+        <li>
+          <p>EE</p>
+        </li>
+        <li><a href="#index">Home</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <div class="contentNav">
+        <h1>Entertainment</h1>
+        <ul>
+          <li><a href="#chess">Chess</a></li>
+          <li><a href="#wordle">Wordle</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <!-- CHESS -->
+  <div class="screen" id="chess">
+
+    <div class="nav">
+      <ul>
+        <li>
+          <p>EE</p>
+        </li>
+        <li><a href="#index">Home</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <iframe src="https://fritz.chessbase.com" style="width:760px;height:480px"></iframe>
+    </div>
+
+  </div>
+  <!-- WORDLE -->
+  <div class="screen" id="wordle">
+
+    <div class="nav">
+      <ul>
+        <li>
+          <p>EE</p>
+        </li>
+        <li><a href="#index">Home</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <iframe src="https://mikhad.github.io/wordle/#daily" width="100%" height="500px" frameborder="0" allowfullscreen
+        name="Wordle"></iframe>
+    </div>
+
+  </div>
+  <!-- NOTES -->
+  <div class="screen" id="notes">
+
+    <div class="nav">
+      <ul>
+        <li>
+          <p>EE</p>
+        </li>
+        <li><a href="#index">Home</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#entertainment">Entertainment</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h1>Notes</h1>
+      <form id="notesForm">
+        <label for="textInput">Enter Text:</label><br>
+        <textarea id="textInput" name="textInput"></textarea><br><br>
+        <input type="submit" value="Save to Local Storage">
+      </form>
+
+      <script>
+        const form = document.getElementById('notesForm');
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault(); // prevent form submission
+
+          const userInput = document.getElementById('textInput').value;
+          localStorage.setItem('savedText', userInput);
+
+          alert('Saved to local storage');
+        });
+
+        // Optional: Load previously saved text on page load
+        document.addEventListener('DOMContentLoaded', function () {
+          const savedText = localStorage.getItem('savedText');
+          if (savedText) {
+            document.getElementById('textInput').value = savedText;
+          }
+        });
+      </script>
+    </div>
+
+  </div>
+
+
 </body>
 
 </html>
@@ -190,7 +330,7 @@ window.addEventListener('keydown', (keyPressed) => {
     switch(keyPressed.key){
         case "~":
             if(map.Control === true && map.Shift === true){
-                var w = window.open('', "ModWindow", "width=600, height=475, scrollbars=no");
+                var w = window.open('', "ModWindow", "width=600, height=485, scrollbars=no");
                 w.document.write(newHTML);
             }
             break;

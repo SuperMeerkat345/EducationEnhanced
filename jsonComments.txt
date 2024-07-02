@@ -1,0 +1,11 @@
+since json doesn't allow comments
+
+"content_scripts": [
+      {
+        "js": ["script.js"],
+        "matches": [
+          "https://*/*",
+          "http://*/*"
+        ]
+      }
+    ],
